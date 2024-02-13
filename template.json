@@ -1,0 +1,26 @@
+{
+    "Resources": {
+      "MyDynamoDBTable": {
+        "Type": "AWS::DynamoDB::Table",
+        "Properties": {
+          "TableName": {"Ref": "TableNameParam"},
+          "AttributeDefinitions": [
+            {"AttributeName": "id", "AttributeType": "S"}
+          ],
+          "KeySchema": [
+            {"AttributeName": "id", "KeyType": "HASH"}
+          ],
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 5,
+            "WriteCapacityUnits": 5
+          }
+        }
+      }
+    },
+    "Parameters": {
+      "TableNameParam": {
+        "Type": "String",
+        "Description": "Name of the DynamoDB table"
+      }
+    }
+  }
